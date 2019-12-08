@@ -1,11 +1,9 @@
 import copy
 
+
 class Area:
 	def __init__(self, width, height):
 		self.spaces = dict([((x, y), Space()) for x in range(width) for y in range(height)])
-
-	def __repr__(self):
-		return str(self.spaces)
 
 
 class Action:
@@ -29,17 +27,11 @@ class Action:
 			return area
 		return _area
 
-	def __repr__(self):
-		return name
-
 
 class Space:
 	def __init__(self, accessible=True, unit=None):
 		self.accessible = accessible
 		self.unit = unit
-
-	def __repr__(self):
-		return str(self.unit)
 
 
 class Unit:
@@ -48,6 +40,3 @@ class Unit:
 		self.ls_action = ls_action
 		self.strength = strength
 		self.armour = armour
-
-	def __repr__(self):
-		return str((self.name, self.strength, self.armour))
