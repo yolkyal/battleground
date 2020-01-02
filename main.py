@@ -1,11 +1,11 @@
 from model import Action, Area, Unit
-from combat_functions import CombatFunctions
+from combat_functions import CombatFunctions, CombatRangeUtil
 from navigation_util import NavigationUtil
 
 
 def main():
-	move_action = Action('Move', CombatFunctions.move)
-	attack_action = Action('Attack', CombatFunctions.attack)
+	move_action = Action('Move', CombatFunctions.move, NavigationUtil.get_move_spaces)
+	attack_action = Action('Attack', CombatFunctions.attack, CombatRangeUtil.get_adjacent_space_keys)
 
 	area = Area(3, 3)
 	area.spaces[(0, 0)].unit = Unit('Unit-1', [move_action, attack_action], 1, 0)
